@@ -9,14 +9,18 @@
   "dependencies": {
     "axios": "^0.27.2",
     "element-plus": "^2.1.11",
+    "got": "^12.0.4",
     "mockjs": "^1.1.0",
+    "module": "^1.0.0",
     "qs": "^6.10.3",
     "require.js": "^1.0.0",
     "vue": "^3.2.8",
     "vue-axios": "^3.4.1",
-    "vue-router": "^4.0.14"
+    "vue-router": "^4.0.13",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@types/node": "^17.0.31",
     "@vitejs/plugin-vue": "^1.6.0",
     "@vue/compiler-sfc": "^3.2.6",
     "unplugin-auto-import": "^0.7.1",
