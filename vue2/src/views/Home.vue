@@ -41,6 +41,15 @@ export default {
   components: {
     SideMenu
   },
+  data() {
+    return {
+      userInfo: {
+        id: "",
+        username: "",
+        avatar: ""
+      }
+    }
+  }
 }
 </script>
 
