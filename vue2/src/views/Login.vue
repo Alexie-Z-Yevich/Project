@@ -3,7 +3,7 @@
     <el-col :xl="6" :lg="7">
       <h2>欢迎来到小艾同学的管理系统</h2>
       <el-image
-          :src="'https://raw.githubusercontent.com/Alexie-Z-Yevich/Project/master/vue2/src/assets/logo.png'"
+          :src="'https://raw.githubusercontent.com/Alexie-Z-Yevich/Project/master/vue2/src/assets/WeChat.jpg'"
           style="height: 180px; width: 180px;"></el-image>
       <p>测试行1哒</p>
       <p>测试行2哒</p>
