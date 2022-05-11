@@ -9,6 +9,7 @@ import UserCenter from '../views/UserCenter.vue'
 import axios from "axios";
 import store from '../store'
 
+const modules = import.meta.glob('../views/sys/**.vue')
 const routes = [
     {
         path: '/',
@@ -29,21 +30,21 @@ const routes = [
                 name: 'UserCenter',
                 component: UserCenter
             },
-            // {
-            //     path: '/sys/users',
-            //     name: 'SysUser',
-            //     component: User
-            // },
-            // {
-            //     path: '/sys/roles',
-            //     name: 'SysRole',
-            //     component: Role
-            // },
-            // {
-            //     path: '/sys/menus',
-            //     name: 'SysMenu',
-            //     component: Menu
-            // }
+            {
+                path: '/sys/users',
+                name: 'SysUser',
+                component: User
+            },
+            {
+                path: '/sys/roles',
+                name: 'SysRole',
+                component: Role
+            },
+            {
+                path: '/sys/menus',
+                name: 'SysMenu',
+                component: Menu
+            }
         ]
     },
 
