@@ -8,15 +8,17 @@
         <strong>小艾同学的后台管理系统</strong>
 
         <div class="header-avatar">
-          <el-avatar size="small" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"/>
+          <el-avatar size="small" :src="userInfo.avatar"></el-avatar>
           <el-dropdown>
             <span class="el-dropdown-link" style="text-align: center">
-              Admin
+              {{userInfo.username}}
             </span>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item>个人中心</el-dropdown-item>
-                <el-dropdown-item>退出</el-dropdown-item>
+                <el-dropdown-item>
+                  <router-link to="/userCenter">个人中心</router-link>>
+                </el-dropdown-item>
+                <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -41,6 +43,9 @@ export default {
   components: {
     SideMenu
   },
+  created() {
+    this.getUserInfo();
+  },
   data() {
     return {
       userInfo: {
@@ -48,6 +53,21 @@ export default {
         username: "",
         avatar: ""
       }
+    }
+  },
+  methods: {
+    getUserInfo() {
+      this.axios.get("/sys/userInfo").then(res => {
+          this.userInfo = res.data.data
+      })
+    },
+    logout() {
+      this.axios.get("/sys/userInfo").then(res => {
+        localStorage.clear();
+        sessionStorage.clear();
+        this.$store.commit("resetState");
+        this.$router.push("/login");
+      })
     }
   }
 }
@@ -93,10 +113,13 @@ export default {
 .el-main {
   color: #333;
   text-align: center;
-  line-height: 160px;
+  /*line-height: 160px;*/
 }
 
 .el-menu-vertical-demo{
   height: 100%;
+}
+a {
+  text-decoration: none;
 }
 </style>

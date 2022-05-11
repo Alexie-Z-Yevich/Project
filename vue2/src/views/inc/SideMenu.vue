@@ -23,7 +23,7 @@
         </el-icon>
         <span>系统管理</span>
       </template>
-      <router-link to="/users">
+      <router-link to="/sys/users">
         <el-menu-item index="1-1">
           <template #title>
             <el-icon>
@@ -33,7 +33,7 @@
           </template>
         </el-menu-item>
       </router-link>
-      <router-link to="/roles">
+      <router-link to="/sys/roles">
         <el-menu-item index="1-2">
           <template #title>
             <el-icon>
@@ -43,7 +43,7 @@
           </template>
         </el-menu-item>
       </router-link>
-      <router-link to="/menus">
+      <router-link to="/sys/menus">
         <el-menu-item index="1-3">
           <template #title>
             <el-icon>
@@ -83,5 +83,9 @@ export default {
 <style scoped>
 .el-menu-vertical-demo {
   height: 100%;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

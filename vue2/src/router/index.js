@@ -5,6 +5,7 @@ import Index from '../views/Index.vue'
 import User from '../views/sys/User.vue'
 import Role from '../views/sys/Role.vue'
 import Menu from '../views/sys/Menu.vue'
+import UserCenter from '../views/UserCenter.vue'
 
 const routes = [
   {
@@ -22,17 +23,22 @@ const routes = [
         component: Index
       },
       {
-        path: '/users',
+        path: '/userCenter',
+        name: 'UserCenter',
+        component: UserCenter
+      },
+      {
+        path: '/sys/users',
         name: 'SysUser',
         component: User
       },
       {
-        path: '/roles',
+        path: '/sys/roles',
         name: 'SysRole',
         component: Role
       },
       {
-        path: '/menus',
+        path: '/sys/menus',
         name: 'SysMenu',
         component: Menu
       }

@@ -8,6 +8,10 @@ export default createStore({
         SET_TOKEN(state, token) {
             state.token = token
             localStorage.setItem('token', token)
+        },
+
+        resetState: (state) => {
+                state.token = ''
         }
     },
     actions: {
