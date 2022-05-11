@@ -10,73 +10,53 @@
       <el-menu-item index="0">
         <template #title>
           <el-icon>
-            <location/>
+<!--            <location/>-->
+            <el-icon><home-filled /></el-icon>
+<!--            <el-icon><component :is="menuList[0].icon" /></el-icon>-->
           </el-icon>
           <span>首页</span>
         </template>
       </el-menu-item>
     </router-link>
-    <el-sub-menu index="1">
+    <el-sub-menu :index="menu.name" v-for="menu in menuList">
       <template #title>
         <el-icon>
-          <location/>
+          <el-icon><component :is="menu.icon" /></el-icon>
         </el-icon>
-        <span>系统管理</span>
+        <span>{{ menu.title }}</span>
       </template>
-      <router-link to="/sys/users">
-        <el-menu-item index="1-1">
+      <router-link :to="item.path" v-for="item in menu.children">
+        <el-menu-item :index="item.name">
           <template #title>
             <el-icon>
-              <location/>
+              <el-icon><component :is="item.icon" /></el-icon>
             </el-icon>
-            <span slot="title">用户管理</span>
+            <span slot="title">{{ item.title }}</span>
           </template>
         </el-menu-item>
       </router-link>
-      <router-link to="/sys/roles">
-        <el-menu-item index="1-2">
-          <template #title>
-            <el-icon>
-              <location/>
-            </el-icon>
-            <span slot="title">角色管理</span>
-          </template>
-        </el-menu-item>
-      </router-link>
-      <router-link to="/sys/menus">
-        <el-menu-item index="1-3">
-          <template #title>
-            <el-icon>
-              <location/>
-            </el-icon>
-            <span slot="title">菜单管理</span>
-          </template>
-        </el-menu-item>
-      </router-link>
-    </el-sub-menu>
-    <el-sub-menu index="2">
-      <template #title>
-        <el-icon>
-          <location/>
-        </el-icon>
-        <span>系统工具</span>
-      </template>
-      <el-menu-item index="2-1">
-        <template #title>
-          <el-icon>
-            <location/>
-          </el-icon>
-          <span slot="title">数字词典</span>
-        </template>
-      </el-menu-item>
+
     </el-sub-menu>
   </el-menu>
 
 </template>
 
 <script>
+import {Expand, HomeFilled, List, Avatar, Tools} from "@element-plus/icons-vue";
 export default {
-  name: "SideMenu"
+  name: "SideMenu",
+  components: {HomeFilled, Expand, List, Avatar, Tools},
+  data() {
+    return {
+    }
+  },
+  computed: {
+    menuList: {
+      get() {
+        return this.$store.state.menus.menuList;
+      },
+    }
+  }
 }
 </script>
 

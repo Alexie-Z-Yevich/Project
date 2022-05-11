@@ -40,4 +40,51 @@ Mock.mock('/logout', 'post', () => {
     return Result
 })
 
+Mock.mock('/sys/menu/nav', 'get', () => {
+
+    let nav = [
+        {
+            title: '系统管理',
+            name: 'SysManege',
+            icon: 'expand',
+            component: '',
+            path: '',
+            children: [
+                {
+                    title: '用户管理',
+                    name: 'SysUser',
+                    icon: 'avatar',
+                    component: 'sys/User',
+                    path: '/sys/users',
+
+                },
+            ]
+        },
+        {
+            title: '系统工具',
+            name: 'SysTools',
+            icon: 'tools',
+            component: '',
+            path: '',
+            children: [
+                {
+                    title: '数字词典',
+                    name: 'SysDictionary',
+                    path: '/sys/dicts',
+                    component: '',
+                    icon: 'List'
+                },
+            ]
+        },
+    ]
+    let authorities = []
+
+    Result.data = {
+        nav: nav,
+        authorities: authorities
+    }
+
+    return Result
+})
+
 export default Mock
