@@ -3,11 +3,11 @@
       active-text-color="#ffd04b"
       background-color="#545c64"
       class="el-menu-vertical-demo"
-      default-active="2"
+      :default-active="this.$store.state.menus.editableTabsValue"
       text-color="#fff"
   >
     <router-link to="/index">
-      <el-menu-item index="0">
+      <el-menu-item index="Index" @click="selectMenu({name: 'Index', title: '首页'})">
         <template #title>
           <el-icon>
 <!--            <location/>-->
@@ -26,7 +26,7 @@
         <span>{{ menu.title }}</span>
       </template>
       <router-link :to="item.path" v-for="item in menu.children">
-        <el-menu-item :index="item.name">
+        <el-menu-item :index="item.name" @click="selectMenu(item)">
           <template #title>
             <el-icon>
               <el-icon><component :is="item.icon" /></el-icon>
@@ -42,10 +42,10 @@
 </template>
 
 <script>
-import {Expand, HomeFilled, List, Avatar, Tools} from "@element-plus/icons-vue";
+import {Expand, HomeFilled, List, Avatar, Tools, Rank, Menu} from "@element-plus/icons-vue";
 export default {
   name: "SideMenu",
-  components: {HomeFilled, Expand, List, Avatar, Tools},
+  components: {HomeFilled, Expand, List, Avatar, Tools, Rank, Menu},
   data() {
     return {
     }
@@ -55,6 +55,11 @@ export default {
       get() {
         return this.$store.state.menus.menuList;
       },
+    }
+  },
+  methods: {
+    selectMenu(item) {
+      this.$store.commit("addTab", item);
     }
   }
 }

@@ -58,6 +58,22 @@ Mock.mock('/sys/menu/nav', 'get', () => {
                     path: '/sys/users',
 
                 },
+                {
+                    title: '角色管理',
+                    name: 'SysRole',
+                    icon: 'rank',
+                    component: 'sys/Role',
+                    path: '/sys/roles',
+
+                },
+                {
+                    title: '菜单管理',
+                    name: 'SysMenu',
+                    icon: 'menu',
+                    component: 'sys/Menu',
+                    path: '/sys/menus',
+
+                },
             ]
         },
         {

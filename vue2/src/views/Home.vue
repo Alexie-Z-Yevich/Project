@@ -29,6 +29,7 @@
         </div>
       </el-header>
       <el-main>
+        <Tabs></Tabs>
         <router-view></router-view>
       </el-main>
     </el-container>
@@ -37,11 +38,12 @@
 
 <script>
 import SideMenu from "./inc/SideMenu.vue";
+import Tabs from "./inc/Tabs.vue";
 
 export default {
   name: "Home",
   components: {
-    SideMenu
+    SideMenu, Tabs
   },
   created() {
     this.getUserInfo();
@@ -114,6 +116,7 @@ export default {
   color: #333;
   text-align: center;
   /*line-height: 160px;*/
+  padding: 0;
 }
 
 .el-menu-vertical-demo{
