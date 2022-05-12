@@ -35,6 +35,8 @@ export default {
   },
   methods: {
     clickTab(target) {
+      console.log(target.name);
+      target.name = this.$store.state.menus.editableTabsValue;
       this.$router.push({name: target.name});
     },
     removeTab(targetName) {

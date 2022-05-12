@@ -1,9 +1,9 @@
 <template>
   <el-menu
+      :default-active="this.$store.state.menus.editableTabsValue"
       active-text-color="#ffd04b"
       background-color="#545c64"
       class="el-menu-vertical-demo"
-      :default-active="this.$store.state.menus.editableTabsValue"
       text-color="#fff"
   >
     <router-link to="/index">

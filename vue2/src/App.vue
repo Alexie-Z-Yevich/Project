@@ -10,9 +10,9 @@ export default {
   name: "App",
   watch: {
     $route(to, from) {
-      console.log("to:", to);
-
       if(to.path !== '/login') {
+        to.name = this.$store.state.menus.editableTabsValue;
+        to.meta.title = this.$store.state.menus.editableTabsValue;
         let obj = {
           name: to.name,
           title: to.meta.title,

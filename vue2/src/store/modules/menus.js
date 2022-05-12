@@ -38,6 +38,17 @@ export default ({
             }
             state.editableTabsValue = tab.name;
         },
+
+        resetState: (state) => {
+            state.menuList = []
+            state.permList = []
+            state.hasRoute = false
+            state.editableTabsValue = 'Index'
+            state.editableTabs = [{
+                title: '首页',
+                name: 'Index',
+            }]
+        }
     },
     actions: {},
     modules: {}

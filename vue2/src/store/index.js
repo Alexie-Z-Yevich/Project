@@ -1,7 +1,7 @@
 import {createStore} from 'vuex'
 import menus from './modules/menus'
 
-export default createStore({
+const store = createStore({
     state: {
         token: '',
     },
@@ -11,12 +11,10 @@ export default createStore({
             localStorage.setItem('token', token)
         },
 
-        resetState: (state) => {
-            state.token = ''
-        }
     },
     actions: {},
     modules: {
         menus,
     }
 })
+export default store

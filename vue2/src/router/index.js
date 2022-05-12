@@ -13,10 +13,6 @@ const modules = import.meta.glob('../views/sys/**.vue')
 const routes = [
     {
         path: '/',
-        redirect: '/home'
-    },
-    {
-        path: '/home',
         name: 'Home',
         component: Home,
         children: [
@@ -87,9 +83,9 @@ router.beforeEach((to, from, next) => {
                 }
             })
 
-            newRoutes.forEach(newRoute => {
-                router.addRoute(newRoute)
-            })
+            //newRoutes.forEach(newRoute => {
+                router.addRoute(newRoutes)
+            //})
             hasRoute = true
             store.commit("changeRouteStatus",hasRoute)
         })
@@ -114,7 +110,7 @@ const menuToRouter = (menu) => {
 
     route.component = () => import('../views/' + menu.component + '.vue')
 
-    // return route
+    return route
 }
 
 export default router

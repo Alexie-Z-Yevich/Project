@@ -69,7 +69,7 @@ export default {
           this.axios.post('/login', this.loginForm).then(res => {
             const jwt = res.headers['authorization'];
             this.$store.commit('SET_TOKEN', jwt);
-            this.$router.push('/index');
+            this.$router.push('/home');
           });
         } else {
           console.log('error submit!!');
